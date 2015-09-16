@@ -40,44 +40,64 @@
 \\\textbf{Período a que se Refere o Relatório:} 2015\\
 \line(1,0){450}
 
+\end{flushleft}
+
 \textbf{Resumo}
-\\
-\vspace{10 mm}
 
-A descontinuidade de Mohorovičić (ou Moho) que separa a crosta do manto
-terrestre é quase exclusivamente mapeada através de métodos geofísicos.
 
+A descontinuidade de Mohorovičić (ou Moho), que separa a crosta do manto
+terrestre, é estudada quase exclusivamente através de métodos geofísicos.
 Os principais métodos utilizados para estimar a profundidade da Moho são a
 sismologia (com fontes naturais ou artificiais) e a gravimetria.
-
 A sismologia geralmente produz estimativas pontuais (através da análise da
 dispersão de ondas de superfície ou funções do receptor) ou em áreas muito
 restritas (através de levantamentos sísmicos ou inversões tomográficas).
-
 Já a gravimetria é capaz de produzir estimativas regionais ou até mesmo
-globais.
-
+globais dependendo da cobertura de dados disponível.
 O advento da gravimetria por satélite facilitou o acesso a dados de qualidade
 com cobertura aproximadamente homogênea em áreas tradicionalmente pobres na
 cobertura de dados terrestres.
-
 No caso da América do Sul, a cobertura de dados sismológicos e de gravimetria
 terrestre é heterogênea e geralmente concentrada em torno de centros urbanos e
 da região costeira.
-
 Neste trabalho, utilizaremos dados de gravimetria por satélite para mapear a
 profundidade da Moho na América do Sul.
-
 Para isso, desenvolvemos um método de inversão não-linear computacionalmente
 eficiente e capaz de levar em consideração a curvatura da Terra.
 
+Existem na literatura diversos métodos de inversão gravimétrica para estimar o
+relevo de uma interface, como o embasamento de uma bacia sedimentar ou a Moho.
+A maioria desses métodos discretizam o relevo em prismas retangulares retos
+justapostos com densidade homogênea e conhecida.
+O problema inverso é estimar a espessura desses prismas que melhor ajusta os
+dados observados.
+O uso de prismas retangulares implica em uma aproximação plana para a Terra,
+que não é adequada para estudos em escala continental.
+Uma melhor aproximação seria a de uma Terra esférica.
+Nessa aproximação, o relevo da interface deve ser discretizado em tesseroides,
+ou prismas esféricos.
+Para ambas aproximações, o problema inverso resultante é custoso
+computacionalmente por que requer a construção de grandes matrizes densas e a
+solução de grandes sistemas lineares.
+Exitem métodos que buscam aumentar a eficiência computacional dessa classe de
+inversão gravimétrica.
+Um desses métodos utiliza a Transformada Rápida de Fourier (FFT) para estimar o
+relevo no domínio da frequência.
+Outro método aproxima as matrizes envolvidas na inversão por matrizes
+diagonais.
+Essa aproximação elimina a necessidade efetuar operações matriciais e de
+construir e resolver sistemas lineares, acelerando consideravelmente a
+computação do resultado.
+O método desenvolvido neste trabalho discretiza o relevo da Moho em tesseroides
+e é baseado na aproximação por matrizes diagonais.
+Além disso, nossa formulação utiliza regularização de suavidade para
+estabilizar o problema inverso.
+Nossa implementação acelera as operações matriciais e a solução de sistemas
+lineares através do uso de matrizes esparsas.
 
 
-\\
 
-\vspace{10 mm}
 \textbf{Palavras-Chave:}
 Inversão. Gravimetria. Coordenadas esféricas. Tesseroide. Moho. América do Sul.
 
-\end{flushleft}
 \end{document}
