@@ -34,7 +34,7 @@
 \line(1,0){450}
 \\\textbf{Orientador:} Valéria C. F. Barbosa\\
 \line(1,0){450}
-\\\textbf{Nível:} DOUTORADO\\
+\\\textbf{Nível:} Doutorado\\
 \line(1,0){450}
 \\\textbf{Período Previsto de Bolsa de Estudos:} 2011 - 2015\\
 \line(1,0){450}
@@ -50,8 +50,8 @@ A descontinuidade de Mohorovičić (ou Moho), que separa a crosta do manto
 terrestre, é estudada quase exclusivamente através de métodos geofísicos.
 Os principais métodos utilizados para estimar a profundidade da Moho são a
 sismologia (com fontes naturais ou artificiais) e a gravimetria.
-A sismologia geralmente produz estimativas pontuais (através da análise da
-dispersão de ondas de superfície ou funções do receptor) ou em áreas muito
+A sismologia geralmente produz estimativas pontuais (através da análise de
+funções do receptor ou da dispersão de ondas de superfície) ou em áreas muito
 restritas (através de levantamentos sísmicos ou inversões tomográficas).
 Já a gravimetria é capaz de produzir estimativas regionais ou até mesmo
 globais dependendo da cobertura de dados disponível.
@@ -77,9 +77,9 @@ que não é adequada para estudos em escala continental.
 Uma melhor aproximação seria a de uma Terra esférica.
 Nessa aproximação, o relevo da interface deve ser discretizado em tesseroides,
 ou prismas esféricos.
-Para ambas aproximações, o problema inverso resultante é custoso
-computacionalmente por que requer a construção de grandes matrizes densas e a
-solução de grandes sistemas lineares.
+Para ambas aproximações, o problema inverso resultante é computacionalmente
+custoso por que requer a construção de grandes matrizes densas e a solução de
+grandes sistemas lineares.
 Exitem métodos que buscam aumentar a eficiência computacional dessa classe de
 inversão gravimétrica.
 Um desses métodos utiliza a Transformada Rápida de Fourier (FFT) para estimar o
@@ -106,7 +106,7 @@ e
 suavidade da solução e o ajuste dos dados observados.
 Os valores utilizados para esses hyperparâmetros tem um impacto direto sobre a
 estimativa do relevo da Moho.
-É crucial determinar valores ótimos (ideais) para esses hyperparâmetros.
+Logo, é crucial determinar valores ótimos (ideais) para esses hyperparâmetros.
 Para isso, utilizamos um método estatístico de avaliação de modelos denominado
 validação cruzada.
 Utilizamos um tipo de validação cruzada para determinar o parâmetro de
@@ -117,14 +117,14 @@ A validação cruzada para determinar o parâmetro de regularização é a varia
 denominada ``holdout''.
 Nesse método, separamos o conjunto de dados em dois: um para a inversão e outro
 para avaliar a performance do modelo estimado (conjunto de teste).
-Para um determinado valor do parâmetro de regularização,
-realizamos a inversão utilizando exclusivamente o conjunto de dados para inversão.
+Para um determinado valor do parâmetro de regularização, realizamos a inversão
+utilizando exclusivamente o conjunto de dados para inversão.
 Em seguida, utilizamos a estimativa dessa inversão para prever os dados
 referentes ao conjunto de teste.
 Esse processo é repetido para diversos valores do parâmetro de regularização.
 Ao final, o parâmetro de regularização ideal é aquele que produz uma estimativa
 que melhor prevê os dados do conjunto de teste.
-Enfatizamos que o conjunto de teste não foi utilizado na inversão.
+Enfatizamos que o conjunto de teste não é utilizado na inversão.
 
 Na validação cruzada para determinar o contraste de densidade e o nível de
 referência, utilizamos dados sismológicos para o conjunto de teste.
@@ -147,6 +147,8 @@ Após essses dois testes, aplicamos o método desenvolvido para estimar a
 profundidade da Moho na América do Sul.
 Utilizamos dados provenientes do modelo de harmônicos esféricos GOCO5S, que é
 baseado em dados de satélite.
+Os dados utilizados na inversão foram dispostos em uma malha regular com
+espaçamento de $0.4^\circ$ e a 50 km de altitude.
 Os resultados obtidos estão de acordo com estimativas anteriores e com as
 principais províncias geológicas do continente.
 
