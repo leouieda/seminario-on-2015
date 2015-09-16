@@ -60,7 +60,7 @@ cobertura de dados terrestres.
 No caso da América do Sul, a cobertura de dados sismológicos e de gravimetria
 terrestre é heterogênea e geralmente concentrada em torno de centros urbanos e
 da região costeira.
-Neste trabalho, utilizaremos dados de gravimetria por satélite para mapear a
+Neste trabalho, utilizamos dados de gravimetria por satélite para mapear a
 profundidade da Moho na América do Sul.
 Para isso, desenvolvemos um método de inversão não-linear computacionalmente
 eficiente e capaz de levar em consideração a curvatura da Terra.
@@ -94,6 +94,47 @@ Além disso, nossa formulação utiliza regularização de suavidade para
 estabilizar o problema inverso.
 Nossa implementação acelera as operações matriciais e a solução de sistemas
 lineares através do uso de matrizes esparsas.
+
+
+A solução do problema inverso depende de diversos parâmetros auxiliares
+(hyperparâmetros):
+(1) o contraste de densidade ao longo da interface,
+(2) a profundidade do nível de referência (i.e., a Moho da Terra Normal)
+e
+(3) o valor do parâmetro de regularização, que controla o balanço entre
+suavidade da solução e o ajuste dos dados observados.
+Os valores utilizados para esses hyperparâmetros tem um impacto direto sobre a
+estimativa do relevo da Moho.
+É crucial determinar valores ótimos (ideais) para esses hyperparâmetros.
+Para isso, utilizamos um método estatístico de avaliação de modelos denominado
+validação cruzada.
+Utilizamos um tipo de validação cruzada para determinar o parâmetro de
+regularização e outro para determinar o contraste de densidade e o nível de
+referência.
+
+A validação cruzada para determinar o parâmetro de regularização é a variante
+denominada ``holdout''.
+Nesse método, separamos o conjunto de dados em dois: um para a inversão e outro
+para avaliar a performance do modelo estimado (conjunto de teste).
+Para um determinado valor do parâmetro de regularização,
+realizamos a inversão utilizando exclusivamente o conjunto de dados para inversão.
+Em seguida, utilizamos a estimativa dessa inversão para prever os dados
+referentes ao conjunto de teste.
+Esse processo é repetido para diversos valores do parâmetro de regularização.
+Ao final, o parâmetro de regularização ideal é aquele que produz uma estimativa
+que melhor prevê os dados do conjunto de teste.
+Enfatizamos que o conjunto de teste não foi utilizado na inversão.
+
+Na validação cruzada para determinar o contraste de densidade e o nível de
+referência utilizamos dados sismológicos para o conjunto de teste.
+Para determinados valores dos dois hyperparâmetros, realizamos a inversão com o
+conjunto de dados separado para inversão na validação cruzada para o parâmetro
+de regularização.
+Em seguida, comparamos a estimativa obtida do relevo da Moho com estimativas
+pontuais provenientes da sismologia.
+Repetimos esse processo para diferentes combinações dos dois hyperparâmetros.
+Os valores ideais são aqueles que produzem uma estimativa que mais se ajusta
+aos vínculos sismológicos.
 
 
 
