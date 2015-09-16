@@ -15,6 +15,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{fancyhdr}
 \usepackage{graphicx}
+\usepackage{url}
 
 \renewcommand{\headrulewidth}{0pt}
 \fancyhead[L]{
@@ -126,7 +127,7 @@ que melhor prevê os dados do conjunto de teste.
 Enfatizamos que o conjunto de teste não foi utilizado na inversão.
 
 Na validação cruzada para determinar o contraste de densidade e o nível de
-referência utilizamos dados sismológicos para o conjunto de teste.
+referência, utilizamos dados sismológicos para o conjunto de teste.
 Para determinados valores dos dois hyperparâmetros, realizamos a inversão com o
 conjunto de dados separado para inversão na validação cruzada para o parâmetro
 de regularização.
@@ -136,7 +137,23 @@ Repetimos esse processo para diferentes combinações dos dois hyperparâmetros.
 Os valores ideais são aqueles que produzem uma estimativa que mais se ajusta
 aos vínculos sismológicos.
 
+Realizamos testes com dados sintéticos para validar a metodologia descrita
+acima.
+O primeiro teste foi baseado em um modelo simples para o relevo da Moho.
+Para o segundo teste, utilizamos o modelo crustal
+CRUST1.0\footnote{\url{http://igppweb.ucsd.edu/~gabi/rem.html}}
+para gerar os dados sintéticos.
+Após essses dois testes, aplicamos o método desenvolvido para estimar a
+profundidade da Moho na América do Sul.
+Utilizamos dados provenientes do modelo de harmônicos esféricos GOCO5S, que é
+baseado em dados de satélite.
+Os resultados obtidos estão de acordo com estimativas anteriores e com as
+principais províncias geológicas do continente.
 
+O código para gerar este resumo
+e a apresentação que o acompanha
+estão disponíveis em um repositório no site
+Github\footnote{\url{https://github.com/leouieda/seminario-on-2015}}.
 
 \textbf{Palavras-Chave:}
 Inversão. Gravimetria. Coordenadas esféricas. Tesseroide. Moho. América do Sul.
