@@ -4,6 +4,9 @@ Apresentado nos seminários anuais da pós-graduação em geofísica do Observat
 Nacional por
 [Leonardo Uieda](http://www.leouieda.com).
 
+Slides podem ser vistos online no
+[SpeakerDeck](https://speakerdeck.com/leouieda/inversao-gravimetrica-do-relevo-da-moho-em-coordenadas-esfericas).
+
 ## Resumo
 
 A descontinuidade de Mohorovičić (ou Moho), que separa a crosta do manto
